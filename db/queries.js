@@ -7,7 +7,7 @@ const getDepartments = async () => {
 
 const getRoles = async () => {
   const res = await pool.query(`
-      SELECT role.id, role.title, role.salary, department.name AS department
+      SELECT role.id, role.title, role.salary, department.name AS department_name
       FROM role 
       JOIN department ON role.department_id = department.id`);
   return res.rows;

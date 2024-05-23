@@ -1,7 +1,9 @@
-DROP DATABASE IF EXISTS employees_db;
-CREATE DATABASE employees_db;
+\c postgres
 
-\c employees_db;
+DROP DATABASE IF EXISTS employee_db WITH (FORCE);
+CREATE DATABASE employee_db;
+
+\c employee_db;
 
 CREATE TABLE department (
     id SERIAL PRIMARY KEY,

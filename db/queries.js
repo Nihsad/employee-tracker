@@ -34,7 +34,19 @@ const addRole = async (title, salary, department_id) => {
 };
 
 const addEmployee = async (first_name, last_name, role_id, manager_id) => {
-  await pool.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', [first_name, last_name, role_id, manager_id]);
+  // Convert empty manager_id to null
+  const managerIdValue = manager_id ? manager_id : null;
+
+  try {
+    await pool.query(
+      'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', 
+      [first_name, last_name, role_id, managerIdValue]
+    );
+    console.log('Employee added successfully');
+  } catch (err) {
+    console.error('Error adding employee:', err);
+    throw err;
+  }
 };
 
 const updateEmployeeRole = async (employee_id, role_id) => {

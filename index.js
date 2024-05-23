@@ -5,17 +5,17 @@ const {
     getDepartments,
     getRoles,
     getEmployees,
+    getEmployeesByManager,
+    getEmployeesByDepartment,
+    getDepartmentBudget,
     addDepartment,
     addRole,
     addEmployee,
     updateEmployeeRole,
     updateEmployeeManager,
-    getEmployeesByManager,
-    getEmployeesByDepartment,
     deleteDepartment,
     deleteRole,
-    deleteEmployee,
-    getDepartmentBudget
+    deleteEmployee
 } = require('./db/queries');
 
 const mainMenu = async () => {
@@ -27,17 +27,17 @@ const mainMenu = async () => {
             'View all departments',
             'View all roles',
             'View all employees',
+            'View employees by manager',
+            'View employees by department',
+            'View department budget',
             'Add a department',
             'Add a role',
             'Add an employee',
             'Update an employee role',
             'Update employee manager',
-            'View employees by manager',
-            'View employees by department',
             'Delete a department',
             'Delete a role',
             'Delete an employee',
-            'View department budget',
             'Exit'
         ]
     });
